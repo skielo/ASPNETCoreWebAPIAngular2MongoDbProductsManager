@@ -1,4 +1,4 @@
-# ASPNETCoreWebAPIAngular2MongoDbProductsManager
+# ASPNET Core 1.1 Web API - Angular 2 - MongoDb ProductsManager
 Angular2 ASPNET_Core WebAPI and MongoDb app - ProductsManager
 
 
