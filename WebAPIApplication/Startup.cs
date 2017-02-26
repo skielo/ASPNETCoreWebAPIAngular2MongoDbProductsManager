@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -27,6 +28,8 @@ namespace WebAPIApplication
         {
             // Add framework services.
             services.AddMvc();
+            //Add Cors support to the service
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 
             // Add application services.
             services.AddTransient<IProductRepository, ProductRepository>();
@@ -40,6 +43,8 @@ namespace WebAPIApplication
 
             //app.UseMvc();
             app.UseMvcWithDefaultRoute();
+
+            app.UseCors("AllowAll");
         }
     }
 }

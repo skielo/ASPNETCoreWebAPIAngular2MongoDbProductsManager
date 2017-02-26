@@ -1,0 +1,12 @@
+<md-card *ngIf="!edit">
+  <md-card-content>
+    <md-list class="app-list">
+        <md-list-item *ngFor="let product of products">
+            <label>{{product.productName}}</label>
+        </md-list-item>                   
+    </md-list>
+  </md-card-content>
+  <md-card-actions>
+
+  </md-card-actions>
+</md-card>

@@ -26,7 +26,7 @@ namespace WebAPIApplication.Repository
         protected T Insert(T obj)
         {
             this._collection.InsertOne(obj);
-            return this.Get((obj as StorableObject).Id.ToString());
+            return this.Get((obj as StorableObject).Id);
         }
 
         protected List<T> SelectAll()
@@ -43,6 +43,10 @@ namespace WebAPIApplication.Repository
         protected T Get(string id)
         {
             return this._collection.Find(new BsonDocument { { "Id", new ObjectId(id) } }).FirstAsync().Result;
+        }
+        protected T Get(ObjectId id)
+        {
+            return this._collection.Find(new BsonDocument { { "Id", id } }).FirstAsync().Result;
         }
         protected T Update(string id, T obj)
         {

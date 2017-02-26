@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebAPIApplication.Models;
@@ -6,6 +7,7 @@ using WebAPIApplication.Repository.Abstract;
 
 namespace WebAPIApplication.Controllers
 {
+    [EnableCors("AllowAll")]
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {

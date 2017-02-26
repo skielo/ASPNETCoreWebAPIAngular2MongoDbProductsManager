@@ -5,10 +5,25 @@ services:
     container_name: webapiapplication
     image: webapiapplication
     build:
-      context: .
+      context: ./WebAPIApplication
       dockerfile: .docker/Dockerfile
     ports:
       - "80:80"
+    networks:
+      - webapi-network
+
+  node:
+    container_name: nodeapp
+    image: nodeapp
+    build:
+      context: ./productsmanager
+      dockerfile: .docker/Dockerfile
+#    volumes:
+#      - ./productsmanager/src:/var/www/productsmanager
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "4200:4200"
     networks:
       - webapi-network
 
